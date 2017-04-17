@@ -1,0 +1,55 @@
+sns.set(style="white", context="talk")
+
+f, (ax1,ax2) = plt.subplots(2,1,figsize=(10, 10))
+x=crime_location['Location Description']
+y=crime_location['Count']
+-----------------------------------------------
+#Top five is plotted on the first axis
+sns.barplot(x="Location Description", y="Count", data=crime_location.iloc[:5, :],
+            label="Total",  palette="BuGn_d",ax=ax1)
+ax1.set(ylabel="Count",
+       xlabel="Location Description",
+    title="Top Five")
+#Bottom five is plotted on the second axis
+sns.barplot(x="Location Description", y="Count", data=crime_location.iloc[136:, :],
+            label="Total",  palette="RdBu_r",ax=ax2)
+ax2.set(ylabel="Count",
+       xlabel="Location Description",
+    title="Bottom Five")
+sns.despine(bottom=True)
+
+plt.tight_layout(h_pad=2)
+plt.show()
+
+------------------------------------------
+j=0
+for i in first_set['Block']:    
+    first_set['Block'][j] = i.split()[2:]
+    first_set['Block'][j] = " ".join(str(x) for x in first_set['Block'].iloc[j])
+    j = j + 1
+first_set.head()
+
+# data = [
+#     go.Bar(
+#         x=arrest_yearly_plot['Year'], # assign x as the dataframe column 'x'
+#         y=arrest_yearly_plot['Count']
+#     )   
+# ]
+# layout = go.Layout(
+#     xaxis=dict(
+#         tick0=2012,
+#         dtick=1  
+#     )
+# )
+# fig = go.Figure(data=data, layout=layout)
+# py.iplot(fig,filename='basic-bar')
+
+---------------------------------------------
+import plotly.plotly as py
+#from plotly.offline import download_plotlyjs,init_notebook_mode,iplot,plot
+import plotly.graph_objs as go
+import plotly.tools as tls
+tls.set_credentials_file(username='FemiOG', api_key='586xEda8qRAcJ2mzoGm7')
+#import cufflinks as cf
+#init_notebook_mode(connected=True)
+#cf.go_offline()
