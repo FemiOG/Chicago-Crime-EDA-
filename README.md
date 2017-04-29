@@ -1,4 +1,4 @@
-# Chicago-Crime-EDA
+# Data Exploration of the Crimes in Chicago Dataset on Kaggle
 
 To view information about the dataset and explore other notebook and resources [Click Here !](https://www.kaggle.com/currie32/crimes-in-chicago)
 
